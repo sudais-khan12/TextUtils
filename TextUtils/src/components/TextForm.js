@@ -55,10 +55,16 @@ export default function TextForm(props) {
   };
   return (
     <>
-      <div className="container">
+      <div
+        className={`container text-${props.mode === "dark" ? "light" : "dark"}`}
+      >
         <h1>{props.heading}</h1>
         <div className="mb-3">
           <textarea
+            style={{
+              backgroundColor: props.mode === "dark" ? "grey" : "white",
+              color: props.mode === "dark" ? "white" : "black",
+            }}
             className="form-control"
             placeholder="Enter Text Here"
             value={text}
@@ -93,7 +99,11 @@ export default function TextForm(props) {
           Clear All
         </div>
       </div>
-      <div className="container my-3">
+      <div
+        className={`container my-3 text-${
+          props.mode === "dark" ? "light" : "dark"
+        }`}
+      >
         <h3>Text Summary</h3>
         <p>
           <b>{text.split(" ").length}</b> Words and <b>{text.length}</b>{" "}
@@ -103,10 +113,11 @@ export default function TextForm(props) {
           <b>{0.008 * text.split(" ").length}</b> Minutes Expected to Read
         </p>
       </div>
-
-      <div className="container">
+      <div
+        className={`container text-${props.mode === "dark" ? "light" : "dark"}`}
+      >
         <h4>Preview</h4>
-        <p>{text}</p>
+        <p>{text.length > 0 ? text : "Nothing to Preview"}</p>
       </div>
     </>
   );
