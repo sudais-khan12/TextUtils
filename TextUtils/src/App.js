@@ -3,6 +3,15 @@ import "./App.css";
 import Alert from "./components/Alert";
 import Navbar from "./components/Navbar";
 import TextForm from "./components/TextForm";
+import About from "./components/About";
+import { createRoot } from "react-dom/client";
+import {
+  createBrowserRouter,
+  RouterProvider,
+  Route,
+  Link,
+} from "react-router-dom";
+
 
 function App() {
   const [mode, setMode] = useState("light"); // Whether dark mode is enabled or not
@@ -42,7 +51,7 @@ function App() {
       <div className="container my-5">
         <TextForm heading="Transform Your Text" mode={mode} alert={showAlert} />
       </div>
-      <div class="d-flex justify-content-end">
+      <div class="d-flex justify-content-end position-absolute top-0 end-0">
         <Alert alert={alert} />
       </div>
     </>
