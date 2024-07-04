@@ -5,23 +5,48 @@ export default function TextForm(props) {
   const [text, setText] = useState("");
   let upperCase = () => {
     setText(text.toUpperCase());
+    if (text === "") {
+      props.alert("Please Write Something", "danger");
+    } else {
+      props.alert("Converted to UpperCase", "success");
+    }
   };
 
   let lowerCase = () => {
     setText(text.toLowerCase());
+    if (text === "") {
+      props.alert("Please Write Something", "danger");
+    } else {
+      props.alert("Converted to LowerCase", "success");
+    }
   };
 
   let reverse = () => {
     setText(text.split("").reverse().join(""));
+    if (text === "") {
+      props.alert("Please Write Something", "danger");
+    } else {
+      props.alert("Converted to Reverse Case", "success");
+    }
   };
 
   let copy = () => {
     navigator.clipboard.writeText(text);
+    if (text === "") {
+      props.alert("Please Write Something", "danger");
+    } else {
+      props.alert("Copied to Clipboard", "success");
+    }
   };
 
   let removeExtraSpaces = () => {
     let newText = text.split(/[ ]+/);
     setText(newText.join(" "));
+    if (text === "") {
+      props.alert("Please Write Something", "danger");
+    } else {
+      props.alert("Extra Spaces Removed", "success");
+    }
   };
 
   let capitalFirstLetter = () => {
@@ -32,6 +57,11 @@ export default function TextForm(props) {
       })
       .join(" ");
     setText(newText);
+    if (text === "") {
+      props.alert("Please Write Something", "danger");
+    } else {
+      props.alert("Converted to Capital First Letter", "success");
+    }
   };
 
   let manageText = () => {
@@ -42,6 +72,11 @@ export default function TextForm(props) {
       })
       .join(".");
     setText(newText);
+    if (text === "") {
+      props.alert("Please Write Something", "danger");
+    } else {
+      props.alert("Managed", "success");
+    }
   };
 
   let clearAll = () => {
