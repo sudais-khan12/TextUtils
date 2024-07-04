@@ -1,7 +1,6 @@
 import "./App.css";
 import Navbar from "./components/Navbar";
 import TextForm from "./components/TextForm";
-import Info from "./components/About";
 import React, { useState } from "react";
 
 function App() {
@@ -9,7 +8,7 @@ function App() {
   let changeMode = () => {
     if (mode === "light") {
       setMode("dark");
-      document.body.style.backgroundColor = "grey";
+      document.body.style.backgroundColor = "#343a40";
     } else {
       setMode("light");
       document.body.style.backgroundColor = "white";
@@ -27,9 +26,9 @@ function App() {
       <div className="container my-5">
         <TextForm heading="Transform Your Text" mode={mode} />
       </div>
-      <div className="container" mode={mode}>
+      {/* <div className="container" mode={mode}>
         <Info />
-      </div>
+      </div> */}
     </>
   );
 }

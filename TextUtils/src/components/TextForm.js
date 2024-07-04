@@ -53,6 +53,15 @@ export default function TextForm(props) {
   let handleOnChange = (event) => {
     setText(event.target.value);
   };
+
+  const countWords = (text) => {
+    let trimmedText = text.trim();
+    return trimmedText.length === 0 ? 0 : trimmedText.split(/\s+/).length;
+  };
+
+  const countCharacters = (text) => {
+    return text.replace(/\s/g, "").length;
+  };
   return (
     <>
       <div
@@ -76,26 +85,26 @@ export default function TextForm(props) {
         <div className="btn btn-primary" onClick={upperCase}>
           UpperCase
         </div>
-        <div className="btn btn-secondary mx-1" onClick={lowerCase}>
+        <div className="btn btn-primary mx-1" onClick={lowerCase}>
           LowerCase
         </div>
-        <div className="btn btn-info me-1" onClick={reverse}>
+        <div className="btn btn-primary me-1" onClick={reverse}>
           Reverse
         </div>
-        <div className="btn btn-warning me-1" onClick={copy}>
+        <div className="btn btn-primary me-1 my-2" onClick={copy}>
           Copy
         </div>
-        <div className="btn btn-success me-1" onClick={removeExtraSpaces}>
+        <div className="btn btn-primary me-1" onClick={removeExtraSpaces}>
           {" "}
           Remove Spaces{" "}
         </div>
-        <div className="btn btn-warning me-1" onClick={capitalFirstLetter}>
+        <div className="btn btn-primary me-1" onClick={capitalFirstLetter}>
           Capital First
         </div>
-        <div className="btn btn-primary" onClick={manageText}>
+        <div className="btn btn-primary me-1" onClick={manageText}>
           Manage
         </div>
-        <div className="btn btn-danger my-1 " onClick={clearAll}>
+        <div className="btn btn-danger " onClick={clearAll}>
           Clear All
         </div>
       </div>
@@ -106,7 +115,7 @@ export default function TextForm(props) {
       >
         <h3>Text Summary</h3>
         <p>
-          <b>{text.split(" ").length}</b> Words and <b>{text.length}</b>{" "}
+          <b>{countWords(text)}</b> Words and <b>{countCharacters(text)}</b>{" "}
           Characters
         </p>
         <p>
