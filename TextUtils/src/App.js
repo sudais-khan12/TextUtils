@@ -1,18 +1,17 @@
 import "./App.css";
 import Navbar from "./components/Navbar";
 import TextForm from "./components/TextForm";
-import About from "./components/About";
-
+import Info from "./components/Info";
 
 function App() {
   return (
     <>
-      <Navbar title="TextUtils" home="Home" about="About" />
+      <Navbar title="TextUtils" home="Home" />
       <div className="container my-5">
         <TextForm heading="Transform Your Text" />
       </div>
       <div className="container">
-        <About />
+        <Info />
       </div>
     </>
   );
