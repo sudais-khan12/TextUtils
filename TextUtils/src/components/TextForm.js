@@ -15,6 +15,35 @@ export default function TextForm(props) {
     setText(text.split("").reverse().join(""));
   };
 
+  let copy = () => {
+    navigator.clipboard.writeText(text);
+  };
+
+  let removeExtraSpaces = () => {
+    let newText = text.split(/[ ]+/);
+    setText(newText.join(" "));
+  };
+
+  let capitalFirstLetter = () => {
+    let newText = text
+      .split(" ")
+      .map((word) => {
+        return word.charAt(0).toUpperCase() + word.slice(1);
+      })
+      .join(" ");
+    setText(newText);
+  };
+
+  let manageText = () => {
+    let newText = text
+      .split(".")
+      .map((word) => {
+        return word.charAt(0).toUpperCase() + word.slice(1);
+      })
+      .join(".");
+    setText(newText);
+  };
+
   let clearAll = () => {
     setText("");
   };
@@ -46,6 +75,19 @@ export default function TextForm(props) {
         </div>
         <div className="btn btn-info me-1" onClick={reverse}>
           Reverse
+        </div>
+        <div className="btn btn-warning me-1" onClick={copy}>
+          Copy
+        </div>
+        <div className="btn btn-success me-1" onClick={removeExtraSpaces}>
+          {" "}
+          Remove Spaces{" "}
+        </div>
+        <div className="btn btn-warning me-1" onClick={capitalFirstLetter}>
+          Capital First
+        </div>
+        <div className="btn btn-primary" onClick={manageText}>
+          Manage
         </div>
         <div className="btn btn-danger my-1 " onClick={clearAll}>
           Clear All
