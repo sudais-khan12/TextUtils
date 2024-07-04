@@ -44,10 +44,10 @@ export default function TextForm(props) {
         <div className="btn btn-secondary mx-1" onClick={lowerCase}>
           LowerCase
         </div>
-        <div className="btn btn-info mx-1" onClick={reverse}>
+        <div className="btn btn-info me-1" onClick={reverse}>
           Reverse
         </div>
-        <div className="btn btn-danger mx-1" onClick={clearAll}>
+        <div className="btn btn-danger my-1 " onClick={clearAll}>
           Clear All
         </div>
       </div>
