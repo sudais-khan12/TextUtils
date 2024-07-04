@@ -6,7 +6,7 @@ import Info from "./components/Info";
 function App() {
   return (
     <>
-      <Navbar title="TextUtils" home="Home" />
+      <Navbar title="TextUtils" home="Home" about="About" />
       <div className="container my-5">
         <TextForm heading="Transform Your Text" />
       </div>
