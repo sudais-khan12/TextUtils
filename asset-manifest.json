@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/sudais-khan12/React/static/css/main.f855e6bc.css",
+    "main.js": "/sudais-khan12/React/static/js/main.066b25da.js",
+    "static/js/453.4da7c47c.chunk.js": "/sudais-khan12/React/static/js/453.4da7c47c.chunk.js",
+    "static/media/Text.png": "/sudais-khan12/React/static/media/Text.80032c83d322e745f5ae.png",
+    "index.html": "/sudais-khan12/React/index.html",
+    "main.f855e6bc.css.map": "/sudais-khan12/React/static/css/main.f855e6bc.css.map",
+    "main.066b25da.js.map": "/sudais-khan12/React/static/js/main.066b25da.js.map",
+    "453.4da7c47c.chunk.js.map": "/sudais-khan12/React/static/js/453.4da7c47c.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.f855e6bc.css",
+    "static/js/main.066b25da.js"
+  ]
+}
