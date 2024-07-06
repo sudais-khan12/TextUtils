@@ -5,48 +5,28 @@ export default function TextForm(props) {
   const [text, setText] = useState("");
   let upperCase = () => {
     setText(text.toUpperCase());
-    if (text === "") {
-      props.alert("Please Write Something", "danger");
-    } else {
-      props.alert("Converted to UpperCase", "success");
-    }
+    props.alert("Converted to UpperCase", "success");
   };
 
   let lowerCase = () => {
     setText(text.toLowerCase());
-    if (text === "") {
-      props.alert("Please Write Something", "danger");
-    } else {
-      props.alert("Converted to LowerCase", "success");
-    }
+    props.alert("Converted to LowerCase", "success");
   };
 
   let reverse = () => {
     setText(text.split("").reverse().join(""));
-    if (text === "") {
-      props.alert("Please Write Something", "danger");
-    } else {
-      props.alert("Converted to Reverse Case", "success");
-    }
+    props.alert("Converted to Reverse Case", "success");
   };
 
   let copy = () => {
+    props.alert("Copied to Clipboard", "success");
     navigator.clipboard.writeText(text);
-    if (text === "") {
-      props.alert("Please Write Something", "danger");
-    } else {
-      props.alert("Copied to Clipboard", "success");
-    }
   };
 
   let removeExtraSpaces = () => {
     let newText = text.split(/[ ]+/);
     setText(newText.join(" "));
-    if (text === "") {
-      props.alert("Please Write Something", "danger");
-    } else {
-      props.alert("Extra Spaces Removed", "success");
-    }
+    props.alert("Extra Spaces Removed", "success");
   };
 
   let capitalFirstLetter = () => {
@@ -57,11 +37,7 @@ export default function TextForm(props) {
       })
       .join(" ");
     setText(newText);
-    if (text === "") {
-      props.alert("Please Write Something", "danger");
-    } else {
-      props.alert("Converted to Capital First Letter", "success");
-    }
+    props.alert("Converted to Capital First Letter", "success");
   };
 
   let manageText = () => {
@@ -72,11 +48,7 @@ export default function TextForm(props) {
       })
       .join(".");
     setText(newText);
-    if (text === "") {
-      props.alert("Please Write Something", "danger");
-    } else {
-      props.alert("Managed", "success");
-    }
+    props.alert("Managed", "success");
   };
 
   let clearAll = () => {
@@ -117,31 +89,63 @@ export default function TextForm(props) {
             onChange={handleOnChange}
           ></textarea>
         </div>
-        <div className="btn btn-primary" onClick={upperCase}>
+        <button
+          disabled={text.length === 0}
+          className="btn btn-primary"
+          onClick={upperCase}
+        >
           UpperCase
-        </div>
-        <div className="btn btn-primary mx-1" onClick={lowerCase}>
+        </button>
+        <button
+          disabled={text.length === 0}
+          className="btn btn-primary mx-1"
+          onClick={lowerCase}
+        >
           LowerCase
-        </div>
-        <div className="btn btn-primary me-1" onClick={reverse}>
+        </button>
+        <button
+          disabled={text.length === 0}
+          className="btn btn-primary me-1"
+          onClick={reverse}
+        >
           Reverse
-        </div>
-        <div className="btn btn-primary me-1 my-2" onClick={copy}>
+        </button>
+        <button
+          disabled={text.length === 0}
+          className="btn btn-primary me-1 my-2"
+          onClick={copy}
+        >
           Copy
-        </div>
-        <div className="btn btn-primary me-1" onClick={removeExtraSpaces}>
+        </button>
+        <button
+          disabled={text.length === 0}
+          className="btn btn-primary me-1"
+          onClick={removeExtraSpaces}
+        >
           {" "}
           Remove Spaces{" "}
-        </div>
-        <div className="btn btn-primary me-1" onClick={capitalFirstLetter}>
+        </button>
+        <button
+          disabled={text.length === 0}
+          className="btn btn-primary me-1"
+          onClick={capitalFirstLetter}
+        >
           Capital First
-        </div>
-        <div className="btn btn-primary me-1" onClick={manageText}>
+        </button>
+        <button
+          disabled={text.length === 0}
+          className="btn btn-primary me-1"
+          onClick={manageText}
+        >
           Manage
-        </div>
-        <div className="btn btn-danger " onClick={clearAll}>
+        </button>
+        <button
+          disabled={text.length === 0}
+          className="btn btn-danger "
+          onClick={clearAll}
+        >
           Clear All
-        </div>
+        </button>
       </div>
       <div
         className={`container my-3 text-${
@@ -154,7 +158,10 @@ export default function TextForm(props) {
           Characters
         </p>
         <p>
-          <b>{0.008 * text.split(" ").length}</b> Minutes Expected to Read
+          <b>
+            {0.008 * text.split(" ").filter((element) => element !== "").length}
+          </b>{" "}
+          Minutes Expected to Read
         </p>
       </div>
       <div
