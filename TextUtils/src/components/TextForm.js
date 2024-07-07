@@ -94,14 +94,14 @@ export default function TextForm(props) {
           className="btn btn-primary"
           onClick={upperCase}
         >
-          UpperCase
+          Upper Case
         </button>
         <button
           disabled={text.length === 0}
           className="btn btn-primary mx-1"
           onClick={lowerCase}
         >
-          LowerCase
+          Lower Case
         </button>
         <button
           disabled={text.length === 0}
